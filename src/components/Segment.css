@@ -1,0 +1,23 @@
+.Segment ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.Segment ul li {
+  position: relative;
+}
+
+// .Unit {
+
+// }
+
+.Split {
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+  left: 24px;
+}
+
+.Split:hover {
+  opacity: 1;
+}
