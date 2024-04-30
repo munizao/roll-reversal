@@ -1,18 +1,27 @@
-.Segment ul {
+.Segment {
+  display:grid;
+}
+
+.Length {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.Units {
+  padding: 0 0 0 0;
+  grid-column-start: 1;
+  grid-row-start: 2;
   display: flex;
+  justify-content: center;
   list-style-type: none;
 }
 
-.Segment ul li {
+.Units > li {
   position: relative;
 }
 
-// .Unit {
-
-// }
-
 .Split {
-  opacity: 0;
+  opacity: .2;
   position: absolute;
   z-index: 2;
   left: 24px;
@@ -21,3 +30,14 @@
 .Split:hover {
   opacity: 1;
 }
+
+.Join {
+  opacity: .2;
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.Join:hover {
+  opacity: 1;
+}
+

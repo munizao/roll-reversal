@@ -1,0 +1,16 @@
+.ListEntry {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 9em;
+  box-shadow: inset 1px 1px 3px #ccc;
+  border-radius: 5px;
+}
+
+select {
+  width: 9.45em;
+  box-shadow: inset 1px 1px 3px #ccc;
+  border-radius: 5px;
+}

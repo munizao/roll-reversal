@@ -1,22 +1,27 @@
 import Segment from './Segment';
 import './Roll.css';
-import Join from '../assets/join.svg?react';
 
-const Roll = ({segmentState}) => {
-  const {segments, setSegments, splitSegment, joinSegments} = segmentState;
+const Roll = ({type, game}) => {
+  const {getCurrSegments, getInitSegments} = game;
+  const segments = type == 'active' ? getCurrSegments() : getInitSegments();
   return (
-    <ul className={'Roll'}>
-      {segmentState.segments?.map((length, i) => {
-        return (
-          <li key={i}>
-            <Segment segmentState={segmentState} segment={i}></Segment>
-            {i < segments.length - 1 ? 
-            <Join className={'Join'} onClick={() => joinSegments(i)}></Join> :
-            null}
-          </li>
-        );
-      })}
-    </ul>
+    <div className={'RollContainer'}>
+      <p>
+        {type == 'goal' ? <span>Goal:</span> : <span>Current:</span>}
+      </p>
+      <ul className={'Roll'}>
+        {segments.map((_, i) => {
+          return (
+            <li key={i}>
+              <Segment game={game} 
+              segment={type == 'active' ? i : segments.length - (i+1)} 
+              rollType={type}>
+              </Segment>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }
 

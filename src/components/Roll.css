@@ -1,8 +1,15 @@
-ul {
+.RollContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Roll {
   display: flex;
   list-style-type: none;
 }
 
-// ul li {
-
-// }
+.Success {
+  font-size: 4em;
+  color: #190896;
+}

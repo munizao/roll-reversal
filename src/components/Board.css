@@ -1,0 +1,23 @@
+.Board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70vw;
+}
+
+.overlay {
+  display: grid;
+}
+
+.overlay > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.Success {
+  z-index: 2;
+}
