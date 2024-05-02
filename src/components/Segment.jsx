@@ -6,10 +6,12 @@ import Join from '../assets/join.svg?react';
 import Spacer from '../assets/spacer.svg?react';
 
 const Segment = ({game, segment, rollType}) => {
-  const {getCurrSegments, getInitSegments, splitSegment, joinSegments} = game;
+  const {getCurrSegments, getInitSegments, checkLegal, applyMove, splitSegment, joinSegments} = game;
   const segments = rollType == 'active' ? getCurrSegments() : getInitSegments();
   const length = segments[segment];
   const unitArray = [...Array(length)];
+  const unitsWide = 65 / (segments.reduce((a,b)=>a+b, 0) + 8);
+  const unitStyle = {width:unitsWide + 'vw', height:(2*unitsWide) + 'vw'};
   return (
     <div className={'Segment'}>
       <div className='Length'>
@@ -19,17 +21,21 @@ const Segment = ({game, segment, rollType}) => {
       {unitArray.map( (_, i) => {
         return (
           <li key={i}>
-            <Unit className={'Unit'}></Unit>
-            {i < length - 1 && rollType == 'active'? 
-            <Split className={'Split'} onClick={() => splitSegment(segment, i+1)}></Split> :
+            <Unit className={'Unit'} style={unitStyle}></Unit>
+            {i < length - 1 && rollType == 'active' ? 
+              <Split className={`Split ${checkLegal(splitSegment(segment, i+1)).legal ? 'legal' : 'illegal'}`} 
+                onClick={() => applyMove(splitSegment, [segment, i+1])} style={unitStyle}>
+              </Split> :
             null}
           </li>
         );
       })}
       </ul>
       {segment < segments.length - 1 && rollType == 'active' ? 
-        <Join className={'Join'} onClick={() => joinSegments(segment)}></Join> :
-        <Spacer className={'Join'}></Spacer>
+        <Join className={`Join ${checkLegal(joinSegments(segment)).legal ? 'legal' : 'illegal'}`} 
+          onClick={() => applyMove(joinSegments, [segment])} style={unitStyle}>
+        </Join> :
+        <Spacer className={'Join'} style={unitStyle}></Spacer>
       }
     </div>
   );

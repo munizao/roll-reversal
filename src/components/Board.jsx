@@ -10,9 +10,6 @@ const Board = ({game}) => {
         <div className={`Success ${isGoal() ? '' : 'hidden'}`}>Success!</div>
         <Roll type={'active'} game={game}></Roll>
       </div>
-      <p>
-        Note: this thing is buggy and unfinished. I am aware!
-      </p>
     </div>
   );
 }

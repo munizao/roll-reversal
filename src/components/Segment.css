@@ -21,23 +21,33 @@
 }
 
 .Split {
-  opacity: .2;
   position: absolute;
   z-index: 2;
   left: 24px;
 }
 
-.Split:hover {
-  opacity: 1;
-}
-
 .Join {
-  opacity: .2;
   grid-column-start: 2;
   grid-row-start: 2;
 }
 
-.Join:hover {
+.legal {
+  opacity: .4;
+}
+
+.legal:hover {
   opacity: 1;
+}
+
+.legal path{
+  stroke:rgb(0, 195, 49) !important;
+}
+
+.illegal {
+  opacity: 0;
+}
+
+.illegal:hover {
+  opacity: .25;
 }
 

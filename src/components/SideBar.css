@@ -1,4 +1,5 @@
 .SideBar {
+  max-height: 100vh;
   background-color:#ecc460;
 }
 
@@ -6,7 +7,7 @@
   border-width: 4px;
   border-radius: 2em;
   background-color: #b14908;
-  width: 20vw;
+  width: 25vw;
   color: #ffffff;
   padding: 1em 1em 1em 1em;
   margin: 10px;
@@ -17,6 +18,10 @@
   text-align: left;
 }
 
+.highlight {
+  color: rgb(255, 140, 140);
+}
+
 .Controls {
   height: 40vh;
   display: grid;
@@ -25,8 +30,13 @@
 }
 
 .Controls ul {
+  max-height: 40vh;
   list-style-type: none;
   padding: 0 0 0 0;
+}
+
+.History {
+  height: 100%;
 }
 
 .History ul {
@@ -34,6 +44,7 @@
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
+  height: 100%;
 }
 
 .History li {

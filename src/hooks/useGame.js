@@ -3,10 +3,18 @@ import { useState } from 'react';
 const useGame = () => {
   const [history, setHistory] = useState([]);
   const [initMax, setInitMax] = useState();
+  const [error, setError] = useState('');
 
   const newGame = (initSegments) => {
-    setInitMax(Math.max(...initSegments));
-    setHistory([[...initSegments]]);
+    const legality = checkLegal(initSegments);
+    if (legality.error !== 'repeated-size') {
+      setInitMax(Math.max(...initSegments));
+      setHistory([[...initSegments]]);
+      setError('');
+    }
+    else {
+      setError(legality.error);
+    }
   }
 
   const appendSegments = (newSegments) => {
@@ -44,41 +52,42 @@ const useGame = () => {
     setHistory(newHistory);
   }
 
-  const isLegal = (segments) => {
-    console.log("initMax", initMax);
+  const checkLegal = (segments) => {
     if (Math.max(...segments) > initMax) {
-      return false;
+      return {legal: false, error: 'init-max-exceeded'};
     }
     const segSet = new Set(segments);
     if (segments.length > segSet.size) {
-      return false;
+      return {legal: false, error: 'repeated-size'};
     }
-    return true;
+    return {legal: true, error: null};
   }
 
-  const applyMove = (newSegments) => {
-    if (isLegal(newSegments)) {
+  const applyMove = (moveFunc, params) => {
+    const newSegments = moveFunc(...params);
+    const legality = checkLegal(newSegments);
+    if (legality.legal) {
       appendSegments(newSegments);
-      return true;
     }
-    return false;
+    setError(legality.error);
   }
 
   const splitSegment = (seg, position) => {
     const newSegments = [...(history.at(-1))];
     newSegments[seg] -= position;
     newSegments.splice(seg, 0, position);
-    return applyMove(newSegments);
+    return newSegments;
   }
+
   const joinSegments = (seg) => {
     const newSegments = [...(history.at(-1))];
     newSegments[seg] += newSegments[seg + 1];
     newSegments.splice(seg + 1, 1);
-    return applyMove(newSegments);
+    return newSegments;
   }
 
-  return {history, initMax, newGame, getInitSegments, getCurrSegments,
-    isGoal, setStep, undo, reset, splitSegment, joinSegments};
+  return {history, initMax, error, newGame, getInitSegments, getCurrSegments,
+    isGoal, setStep, undo, reset, checkLegal, applyMove, splitSegment, joinSegments};
 }
 
 export default useGame;
