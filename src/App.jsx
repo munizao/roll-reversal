@@ -22,6 +22,7 @@ const App = () => {
           <h2>A number split and join game</h2>
         </header>  
         <Board game={game}></Board>
+        
       </div>
     </main>
   )

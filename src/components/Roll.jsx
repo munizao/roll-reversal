@@ -2,13 +2,15 @@ import Segment from './Segment';
 import './Roll.css';
 
 const Roll = ({type, game}) => {
-  const {getCurrSegments, getInitSegments} = game;
+  const {getCurrSegments, getInitSegments, isGoal} = game;
   const segments = type == 'active' ? getCurrSegments() : getInitSegments();
   return (
     <div className={'RollContainer'}>
       <p>
         {type == 'goal' ? <span>Goal:</span> : <span>Current:</span>}
       </p>
+      <div className={'overlay'}>
+      <div className={`Success ${type === 'active' && isGoal() ? '' : 'hidden'}`}><span>Success!</span></div>
       <ul className={'Roll'}>
         {segments.map((_, i) => {
           return (
@@ -21,6 +23,7 @@ const Roll = ({type, game}) => {
           );
         })}
       </ul>
+      </div>
     </div>
   );
 }

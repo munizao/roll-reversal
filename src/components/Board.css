@@ -5,15 +5,6 @@
   width: 65vw;
 }
 
-.overlay {
-  display: grid;
-}
-
-.overlay > * {
-  grid-column-start: 1;
-  grid-row-start: 1;
-}
-
 .hidden {
   visibility: hidden;
 }

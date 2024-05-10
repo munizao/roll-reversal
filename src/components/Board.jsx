@@ -6,10 +6,7 @@ const Board = ({game}) => {
   return (
     <div className='Board'>
       <Roll type={'goal'} game={game}></Roll>
-      <div className='overlay'>
-        <div className={`Success ${isGoal() ? '' : 'hidden'}`}>Success!</div>
-        <Roll type={'active'} game={game}></Roll>
-      </div>
+      <Roll type={'active'} game={game}></Roll>
     </div>
   );
 }

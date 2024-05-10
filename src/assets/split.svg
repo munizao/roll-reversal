@@ -26,8 +26,8 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="7.8125"
-     inkscape:cx="23.936"
-     inkscape:cy="48"
+     inkscape:cx="24"
+     inkscape:cy="47.872"
      inkscape:window-width="1920"
      inkscape:window-height="963"
      inkscape:window-x="0"
@@ -76,11 +76,11 @@
        transform="matrix(3.6472733,0,0,3.6472733,0.83981473,24.839815)"
        style="stroke-width:0.38384839;stroke-dasharray:none">
       <path
-         style="fill:none;stroke:#000000;stroke-width:0.38384839;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow)"
+         style="fill:none;stroke:#ff0000;stroke-width:0.38384839;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow)"
          d="M 5.3236954,6.35 H 1.8791049"
          id="path1" />
       <path
-         style="fill:none;stroke:#000000;stroke-width:0.38384839;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow-7)"
+         style="fill:none;stroke:#ff0000;stroke-width:0.38384839;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#RoundedArrow-7)"
          d="M 7.3763042,6.35 H 10.820895"
          id="path1-5" />
     </g>

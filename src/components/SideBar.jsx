@@ -8,16 +8,15 @@ const SideBar = ({game}) => {
       <div className={'Rules SideBlock'}>
         <p>
           <b>To play:</b> Click between roll units to split a segment apart, 
-          or between two segments to join them.
+          or between two segments to join them. Restrictions: 
+          <span className={error === 'init-max-exceeded' ? 'highlight': ''}>
+            &#8203; you may not make a segment larger than the largest starting segment, 
+          </span>
+          &#8203; and 
+          <span className={error === 'repeated-size' ? 'highlight': ''}>
+          &#8203; you may not make two segments of the same size. 
+          </span>
         </p>
-          <ul>
-            <li className={error === 'init-max-exceeded' ? 'highlight': ''}>
-              You may not make a segment larger than the largest starting segment.
-            </li>
-            <li className={error === 'repeated-size' ? 'highlight': ''}>
-              You may not make two segments of the same size. 
-            </li>
-          </ul>
         <p>
           <b>Goal:</b> Reverse the initial setup.
         </p>

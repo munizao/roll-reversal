@@ -9,7 +9,24 @@
   list-style-type: none;
 }
 
+.overlay {
+  display: grid;
+}
+
+.overlay > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  backdrop-filter: blur(10px);
+}
+
+
+
 .Success {
   font-size: 4em;
   color: #190896;
+  align-self: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
