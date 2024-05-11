@@ -4,6 +4,7 @@ import './App.css'
 import Board from './components/Board.jsx'
 import useGame from './hooks/useGame.js';
 import SideBar from './components/SideBar.jsx';
+import FootBar from './components/FootBar.jsx';
 
 
 
@@ -22,7 +23,7 @@ const App = () => {
           <h2>A number split and join game</h2>
         </header>  
         <Board game={game}></Board>
-        
+        <FootBar game={game}></FootBar>
       </div>
     </main>
   )

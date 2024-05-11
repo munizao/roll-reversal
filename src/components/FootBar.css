@@ -1,0 +1,31 @@
+.FootBar {
+  display: flex;
+}
+
+.button {
+  color: white;
+  background-color: rgb(128, 72, 3);
+  border-radius: .3em;
+  padding: 0 .3em 0 .3em;
+  margin: 0 .8em 0 .8em;
+}
+
+.About {
+  color: black;
+  background-color: antiquewhite;
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
+  position: absolute;
+  padding: 1em;
+  top: 30vh;
+  left: 30vw;
+  min-height: 40vh;
+  min-width: 40vw;
+  max-width: 40vw;
+  border-radius: 2em;
+}
+
+.hidden {
+  visibility: hidden;
+}
