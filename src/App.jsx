@@ -20,7 +20,7 @@ const App = () => {
       <div className={'Game'}>
         <header>
           <h1>Roll Reversal</h1>
-          <h2>A number split and join game</h2>
+          <h2>A number split and join game by Alexandre Muñiz</h2>
         </header>  
         <Board game={game}></Board>
         <FootBar game={game}></FootBar>
