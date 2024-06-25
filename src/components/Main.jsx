@@ -1,14 +1,25 @@
 import './Main.css'
+import { useParams } from "react-router-dom";
 import Board from './Board.jsx'
 import useGame from '../hooks/useGame.js';
 import SideBar from './SideBar.jsx';
 import FootBar from './FootBar.jsx';
 
 const Main = () => {
+  const params = useParams();
+  console.log("params.seq", params.seq);
+  const seq = params.seq?.split("-").map((val) => parseInt(val));
+  console.log("seq ", seq);
   const game = useGame();
   const {history, newGame} = game;
+
   if (history.length == 0) {
-    newGame([7, 5, 3]);
+    if (seq) {
+      newGame(seq); // Actually parse the thing
+    }
+    else {
+      newGame([7, 5, 3]);
+    }
   }
   return (
       <main>

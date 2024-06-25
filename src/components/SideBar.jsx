@@ -21,7 +21,7 @@ const SideBar = ({game}) => {
           </span>
         </p>
         <p>
-          <b>Goal:</b> Reverse the initial setup.
+          <b>Goal:</b> Reverse the initial segments.
         </p>
       </div>
       <div className={'Controls SideBlock'}>

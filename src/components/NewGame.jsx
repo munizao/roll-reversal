@@ -26,7 +26,7 @@ const NewGame = ({game}) => {
       </p>
       <div className={'ListEntry'}>
         <input id={'init-list'} type="text" value={text} 
-        placeholder="Number list"
+        placeholder="Enter list or select"
         onChange={({target}) => setText(target.value)} 
         onKeyDown={(event) => initListKeyPress(event)} />
         <select onChange={({target}) => newGame(textToList(target.value))} id={'presets'} size={4}>

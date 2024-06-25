@@ -3,7 +3,17 @@ import react from '@vitejs/plugin-react'
 import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [svgr(), react()],
-  base: 'https://puzzlezapper.com/roll-reversal/'
-})
+export default defineConfig(({command}) => {
+  if (command === 'serve') {
+    return {
+      plugins: [svgr(), react()],
+      base: '/'
+    }
+  }
+  else {
+    return {
+      plugins: [svgr(), react()],
+      base: 'https://puzzlezapper.com/roll-reversal/'
+    }
+  }
+});

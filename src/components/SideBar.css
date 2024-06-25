@@ -1,6 +1,7 @@
 .SideBar {
   max-height: 100vh;
-  background-color:#ecc460;
+  background-color:#c9c282;
+  border-radius: 2em;
 }
 
 .SideBar p {
@@ -10,7 +11,7 @@
 .SideBlock {
   border-width: 4px;
   border-radius: 2em;
-  background-color: #b14908;
+  background-color: #503a03;
   width: 24vw;
   color: #ffffff;
   padding: 1em 1em 1em 1em;
