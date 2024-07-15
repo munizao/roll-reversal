@@ -7,10 +7,10 @@ import FootBar from './FootBar.jsx';
 
 const Main = () => {
   const params = useParams();
-  console.log("params.seq", params.seq);
+  console.log("params " + JSON.stringify(params));
   const seq = params.seq?.split("-").map((val) => parseInt(val));
-  console.log("seq ", seq);
   const game = useGame();
+  console.log("game " + JSON.stringify(game));
   const {history, newGame} = game;
 
   if (history.length == 0) {

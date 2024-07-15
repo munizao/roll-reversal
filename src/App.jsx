@@ -12,8 +12,8 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/:seq" element={<Main/>}></Route>
-        <Route path="/" element={<Main/>}></Route>
+        <Route path="/roll-reversal/:seq" element={<Main/>}></Route>
+        <Route path="/roll-reversal/" element={<Main/>}></Route>
       </Routes>
     </Router>
   )
