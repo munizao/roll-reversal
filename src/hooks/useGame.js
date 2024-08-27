@@ -5,6 +5,12 @@ const useGame = () => {
   const [initMax, setInitMax] = useState();
   const [error, setError] = useState('');
 
+  const init = () => {
+    setHistory([]);
+    setInitMax(null);
+    setError('');
+  }
+
   const newGame = (initSegments) => {
     const legality = checkLegal(initSegments);
     if (legality.error !== 'repeated-size') {
@@ -86,7 +92,7 @@ const useGame = () => {
     return newSegments;
   }
 
-  return {history, initMax, error, newGame, getInitSegments, getCurrSegments,
+  return {history, initMax, error, init, newGame, getInitSegments, getCurrSegments,
     isGoal, setStep, undo, reset, checkLegal, applyMove, splitSegment, joinSegments};
 }
 
