@@ -4,6 +4,7 @@ const useGame = () => {
   const [history, setHistory] = useState([]);
   const [initMax, setInitMax] = useState();
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
 
   const init = () => {
     setHistory([]);
@@ -21,12 +22,14 @@ const useGame = () => {
     else {
       setError(legality.error);
     }
+    setSuccess(false);
   }
 
   const appendSegments = (newSegments) => {
     const newHistory = [...history];
     newHistory.push(newSegments);
     setHistory(newHistory);
+    return newHistory;
   }
 
   const getInitSegments = () => {
@@ -37,14 +40,15 @@ const useGame = () => {
     return history.at(-1);
   }
 
-  const isGoal = () => {
-    return history[0].length === history.at(-1).length &&
-      history[0].every((el, i) => el === history.at(-1)[history.at(-1).length - i - 1]);
+  const isGoal = (hist) => {
+    return hist[0].length === hist.at(-1).length &&
+      hist[0].every((el, i) => el === hist.at(-1)[hist.at(-1).length - i - 1]);
   }
 
   const setStep = (step) => {
     const newHistory = history.slice(0, step);
     setHistory(newHistory);
+    
   }
 
   const undo = () => {
@@ -72,10 +76,14 @@ const useGame = () => {
   const applyMove = (moveFunc, params) => {
     const newSegments = moveFunc(...params);
     const legality = checkLegal(newSegments);
+    let newHistory = history;
     if (legality.legal) {
-      appendSegments(newSegments);
+      newHistory = appendSegments(newSegments);
     }
     setError(legality.error);
+    if (isGoal(newHistory)) {
+      setSuccess(true);
+    }
   }
 
   const splitSegment = (seg, position) => {
@@ -93,7 +101,7 @@ const useGame = () => {
   }
 
   return {history, initMax, error, init, newGame, getInitSegments, getCurrSegments,
-    isGoal, setStep, undo, reset, checkLegal, applyMove, splitSegment, joinSegments};
+    isGoal, setStep, undo, reset, checkLegal, applyMove, splitSegment, joinSegments, success, setSuccess};
 }
 
 export default useGame;

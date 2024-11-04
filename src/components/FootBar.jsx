@@ -3,9 +3,10 @@ import { useState } from 'react';
 
 const FootBar = ({game}) => {
   const [aboutShown, setAboutShown] = useState(false); 
-  const {undo, reset} = game;
+  const {undo, reset, setSuccess} = game;
   const about = () => {
     setAboutShown(!aboutShown);
+    setSuccess(false);
   }
 
   return (
